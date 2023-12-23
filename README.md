@@ -20,3 +20,4 @@ Run the server
 ```
 python manage.py runserver
 ```
+<p>P.S - Polls file is the Application file</p>
