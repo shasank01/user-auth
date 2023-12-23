@@ -1,2 +1,2 @@
 # user-auth
-User authentication and Authorization Application Using Django
+User authentication Application Using Django
