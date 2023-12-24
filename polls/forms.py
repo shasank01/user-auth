@@ -8,17 +8,31 @@ class UserForms(UserCreationForm):
     class Meta:
         model = User
         fields = [
-            # "first_name",
-            # "last_name",
             "username",
             "email",
             "password1",
             "password2",
-        ]  # password 2 is for verification
+        ]
 
 
 class LoginForm(AuthenticationForm):
-    username = forms.CharField(widget=TextInput())  # (attrs={"class": "form-control"})
+    username = forms.CharField(
+        widget=TextInput(
+            attrs={
+                "placeholder": "Name",
+                "style": "width: 300px;",
+                "class": "form-control",
+                "autocomplete": "off",
+            }
+        )
+    )
     password = forms.CharField(
-        widget=PasswordInput()
-    )  # (attrs={"class": "form-control"})
+        widget=PasswordInput(
+            attrs={
+                "placeholder": "Password",
+                "style": "width: 300px;",
+                "class": "form-control",
+                "autocomplete": "off",
+            }
+        )
+    )

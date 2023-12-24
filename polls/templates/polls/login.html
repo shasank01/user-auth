@@ -7,10 +7,29 @@
 </head>
 <body>
     <h1>Welcome to the Login Page</h1>
-    <form method="POST" autocomplete="off">
+    {% for message in messages %}
+        <div>{{ message }}</div>
+    {% endfor %}
+    <form method="POST" autocomplete="off" action="{% url 'login' %}">
         {% csrf_token %}
-        {{ loginform.as_p }}
+        {{ form.username.label_tag }} {{ form.username }}
+        <br>
+        {{ form.password.label_tag }} {{ form.password }}
+        <br>
         <input type="submit" value="Login">
     </form>
+    
+    
+     <!-- <form>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Username</label>
+          <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password">
+        </div>
+        <input type="submit" value="Login"> 
+      </form> -->
 </body>
 </html>

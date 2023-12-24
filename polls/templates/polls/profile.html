@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dashboard</title>
+    <title>Profile</title>
 </head>
 <body>
     <h1>Welcome to the dashboard page.</h1>
-    <a style="text-decoration: none;" href="{% url 'logout' %}"><b>Logout</b></a>    
+    <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <input type="submit" value="Logout">
+    </form> 
 </body>
 </html>
