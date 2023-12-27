@@ -1,3 +1,4 @@
+from functools import cache
 from multiprocessing import context
 
 # from django.http import HttpResponseRedirect
@@ -12,6 +13,7 @@ from django.contrib import messages
 from .forms import UserForms, LoginForm
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import authenticate, login, logout
+from django.views.decorators.cache import cache_control
 
 
 def homepage(request):
@@ -58,12 +60,13 @@ def login_user(request):
     return render(request, "polls/login.html", context=context)
 
 
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 @login_required(login_url="login")
 def profile(request):
     return render(request, "polls/profile.html")
 
 
-def logout(request):
+def logout_user(request):
     auth.logout(request)
     return redirect(reverse("index"))
 
