@@ -69,16 +69,3 @@ def profile(request):
 def logout_user(request):
     auth.logout(request)
     return redirect(reverse("index"))
-
-
-# def login_view(request):
-#     print("Login view reached")  # Temporary debugging message
-#     # Your existing login logic here...
-# def login(request):
-#     return render(request, "polls/login.html")
-# return HttpResponseRedirect(reverse("dashboard"))
-# else:
-#     print("Autientication Failed")
-
-# def index(request):
-#     return HttpResponse("Hello, world. You're at the polls index.")
