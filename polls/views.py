@@ -1,7 +1,6 @@
 from functools import cache
 from multiprocessing import context
 
-# from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
@@ -9,7 +8,6 @@ from django.urls import reverse
 from django.contrib.auth.views import LoginView
 from django.contrib import messages
 
-# Create your views here.
 from .forms import UserForms, LoginForm
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import authenticate, login, logout
